@@ -43,7 +43,7 @@ O arquivo `payload.json` é a fonte de dados da aplicação e contém:
   - Exibe **Diária R$ X** e **Taxa R$ Y** (sem necessidade de calcular quantidade de diárias).  
 
 ### 🏨 Detalhes do Hotel
-- Botão **“Ver detalhes”** abre um **drawer lateral** com:  
+- Botão **“Ver detalhes”** abre um **modal** com:  
   - Nome do hotel.  
   - Descrição.  
   - Endereço completo.  
