@@ -7,7 +7,7 @@
     </div>
 
     <div class="row q-px-xl justify-center" style="position: relative; bottom: -45px; margin-top: -35px;">
-      <div class="col-6">
+      <div class="col-7">
         <HotelFilters />
       </div>
     </div>

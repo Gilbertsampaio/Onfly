@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps, ref } from 'vue';
+import { ref } from 'vue';
 import defaultImage from '../assets/hotel-image-placeholder.png';
 import { formatBRL } from '../helpers/formatCurrency';
 
@@ -49,10 +49,9 @@ const getAmenityIcon = (amenity: string): string => {
 <template>
   <q-card class="hotel-card q-mb-sm">
     <div class="row">
-      <q-card-section class="col-2 relative-position q-pa-none">
+      <q-card-section class="col-3 relative-position q-pa-none">
         <q-img
           :src="imageSrc"
-          :ratio="1"
           class="hotel-card__image"
           @error="onImgError"
         />
@@ -68,7 +67,7 @@ const getAmenityIcon = (amenity: string): string => {
         </div>
       </q-card-section>
 
-      <q-card-section class="col-8 relative-position">
+      <q-card-section class="col-7 relative-position">
         <div class="text-subtitle1 text-weight-bold">{{ hotel.name }}</div>
         <div class="text-caption text-grey-7">{{ hotel.district }}</div>
 
@@ -84,7 +83,7 @@ const getAmenityIcon = (amenity: string): string => {
             </div>
           </div>
 
-          <div class="text-green text-weight-medium text-body2">
+          <div class="text-green text-weight-medium text-caption">
             <div class="q-mb-xs">
               <q-icon name="payments" size="18px" class="q-mr-xs" />
               Reembolsável
@@ -106,7 +105,7 @@ const getAmenityIcon = (amenity: string): string => {
           No booking <span class="text-strike">{{ formatBRL(hotel.oldPrice ?? 0) }}</span>
         </div>
 
-        <div class="text-body2 text-grey-6">
+        <div class="text-caption text-grey-6">
           <div class="row justify-between q-mb-xs">
             <span>Diarias</span>
             <span>{{ formatBRL(hotel.dailyPrice) }}</span>
