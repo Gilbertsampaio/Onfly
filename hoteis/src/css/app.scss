@@ -1,1 +1,279 @@
-// app global css in SCSS form
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --q-primary-100: #009EFB;
+    --q-primary-200: #007DC7;
+    --q-success-100: #00835C;
+    --q-info-0: #f5f5f5;
+    --q-info-50: #dad7d7;
+    --q-info-100: #ADADB3;
+    --q-info-200: #84858C;
+    --q-info-300: #84858C;
+    --q-info-400: #696A71;
+    --q-info-500: #58585F;
+    --q-info-600: #434347;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    background: var(--q-info-0);
+}
+
+.text-green {
+    color: var(--q-success-100) !important;
+}
+
+.text-subtitle1 {
+    font-size: 16px !important;
+    color: var(--q-info-400) !important;
+}
+
+.q-card-section {
+    .q-icon {
+        color: var(--q-info-400) !important;
+    }
+}
+
+.icon-amenity {
+    .q-icon {
+        color: var(--q-info-400) !important;
+    }
+}
+
+.q-card {
+    &--price {
+        color: var(--q-primary-100) !important;
+    }
+
+    .q-btn {
+        background: var(--q-primary-100) !important;
+        text-transform: none !important;
+    }
+
+    .title {
+        color: var(--q-primary-100) !important;
+    }
+
+    .q-icon.icon-amenity {
+        color: var(--q-info-400) !important;
+    }
+
+    span.text {
+        margin-left: 10px;
+    }
+
+    .text {
+        color: var(--q-info-400) !important;
+    }
+}
+
+.search-btn {
+
+    .q-icon {
+        font-size: 1em !important;
+    }
+}
+
+.q-page-container {
+    background: var(--q-primary-100);
+    padding-top: 100px !important;
+}
+
+.search-btn {
+    background: var(--q-primary-100);
+    max-width: 150px;
+    float: right;
+}
+
+.container-form {
+    background: var(--q-info-0);
+    border-radius: 10px;
+}
+
+.container-body {
+    background: var(--q-info-0);
+    border-radius: 60px 60px 0 0;
+}
+
+.q-page {
+    .pagination {
+        background: var(--q-info-0);
+    }
+
+    min-height: inherit !important;
+}
+
+.q-layout__section--marginal {
+    background: #fff;
+}
+
+.q-img-logo {
+    max-width: 150px;
+    margin: 10px;
+}
+
+.search-container {
+    border: none !important;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.q-card {
+    border-radius: 15px;
+    box-shadow: none;
+
+    .scrollable-modal {
+        height: 600px;
+        overflow-y: auto;
+        margin-right: 3px;
+    }
+
+    /* Chrome, Edge e Safari */
+    .scrollable-modal::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .scrollable-modal::-webkit-scrollbar-track {
+        background: transparent;
+        /* trilha transparente */
+    }
+
+    .scrollable-modal::-webkit-scrollbar-thumb {
+        background: var(--q-info-50);
+        border-radius: 5px;
+    }
+
+    .scrollable-modal::-webkit-scrollbar-button {
+        height: 0px;
+        display: block;
+        background: transparent;
+    }
+
+    .btn-sem-fundo {
+        background: transparent !important;
+        /* garante que não tenha fundo */
+        box-shadow: none !important;
+        /* remove sombra caso exista */
+    }
+}
+
+.hotel-card {
+    border-radius: 20px;
+
+    &__image {
+        border-radius: 20px 0 0 20px;
+        height: 100%;
+    }
+
+    &__stars {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 25px;
+        margin: 20px;
+        padding: 5px 10px;
+    }
+}
+
+.icon-amenity {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+}
+
+.q-field--outlined .q-field__control {
+    border-radius: 10px !important;
+}
+
+.q-field--standard .q-field__control:before {
+    border: none;
+}
+
+.custom-pagination-button {
+    border: 1px solid var(--q-primary-100);
+    border-radius: 8px;
+    color: var(--q-primary-100);
+    background-color: transparent !important;
+    min-width: 45px !important;
+    height: 36px;
+}
+
+.custom-pagination-button:hover {
+    background-color: rgba(0, 151, 167, 0.1);
+}
+
+.custom-pagination-button:disabled {
+    border-color: #ccc;
+    color: #ccc;
+    background-color: transparent !important;
+}
+
+.custom-pagination-button .q-icon {
+    font-size: 16px;
+}
+
+.custom-pagination-title {
+    font-size: 16px;
+    color: var(--q-info-400) !important;
+}
+
+.q-menu {
+    margin-top: 10px !important;
+    border-radius: 10px !important;
+    width: 250px !important;
+    max-width: 250px !important;
+    margin-left: -8px !important;
+
+    .q-item {
+        min-height: 40px;
+        color: var(--q-info-400) !important;
+    }
+}
+
+.q-field--standard .q-field__control:after {
+    display: none !important;
+}
+
+.q-field--outlined .q-field__control:hover:before {
+    border-color: var(--q-primary-100) !important;
+}
+
+.hotel-card__image_modal {
+    border-radius: 10px;
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.q-carousel__slide {
+    border-radius: 10px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+.q-carousel {
+
+    .q-btn {
+        border: none !important;
+        color: var(--q-primary-100);
+        background: var(--q-info-0) !important;
+
+        .q-icon {
+            font-size: 16px;
+        }
+    }
+}
+
+.sem-padding-lr-pt {
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.q-btn.plane {
+
+    i {
+        transform: rotate(45deg);
+    }
+}
