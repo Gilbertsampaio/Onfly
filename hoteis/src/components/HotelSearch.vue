@@ -12,7 +12,7 @@
         <div class="col-8">
           <q-select v-model="selectedCity" :use-input="!selectedCity" input-debounce="300" :options="cityOptions"
             @filter="filterCities" placeholder="Destino" clearable outlined dense class="custom-input" hide-dropdown-icon
-            style="max-width: 400px;">
+            style="max-width: 400px;" @clear="handleClear">
             <template v-slot:no-option>
               <q-item>
                 <q-item-section class="text-grey">
@@ -75,6 +75,11 @@ const performSearch = () => {
   }
 
   void hotelStore.fetchHotels(selectedCity.value.placeId);
+};
+
+const handleClear = () => {
+  selectedCity.value = null;
+  void hotelStore.fetchHotels();
 };
 
 </script>
