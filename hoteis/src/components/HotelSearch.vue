@@ -1,21 +1,21 @@
 <template>
-  <div class="page-background">
-    <div class="search-container">
-      <div class="tab-buttons">
+  <div class="search-container-filter">
+    <div class="search-container-filter__div">
+      <div class="search-container-filter__tab">
         <q-btn icon="flight" label="Aéreo" flat class="tab plane" />
         <q-btn icon="hotel" label="Hotel" flat class="tab active" />
         <q-btn icon="directions_car" label="Carro" flat class="tab" />
         <q-btn icon="directions_bus" label="Ônibus" flat class="tab" />
       </div>
 
-      <div class="row container-form items-center q-pa-sm">
+      <div class="search-container-filter__filter row">
         <div class="col-8">
           <q-select v-model="selectedCity" :use-input="!selectedCity" input-debounce="300" :options="cityOptions"
-            @filter="filterCities" placeholder="Destino" clearable outlined dense class="custom-input" hide-dropdown-icon
+            @filter="filterCities" placeholder="Destino" clearable outlined dense class="search-container-filter__custom-input" hide-dropdown-icon
             style="max-width: 400px;" @clear="handleClear">
             <template v-slot:no-option>
               <q-item>
-                <q-item-section class="text-grey">
+                <q-item-section class="search-container-filter__text">
                   Nenhuma cidade encontrada
                 </q-item-section>
               </q-item>
@@ -24,7 +24,7 @@
         </div>
 
         <div class="col-4">
-          <q-btn type="button" label="Buscar Hotel" icon="search" color="" class="search-btn" @click="performSearch"
+          <q-btn type="button" label="Buscar Hotel" icon="search" color="" class="search-container-filter__search-btn" @click="performSearch"
             :disable="!selectedCity" />
         </div>
       </div>
@@ -81,51 +81,4 @@ const handleClear = () => {
   selectedCity.value = null;
   void hotelStore.fetchHotels();
 };
-
 </script>
-
-<style lang="scss" scoped>
-.search-container {
-  background: white;
-  border-radius: 12px;
-  padding: 16px;
-}
-
-.tab-buttons {
-  display: flex;
-  gap: 24px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #e0e0e0;
-  margin-bottom: 16px;
-}
-
-.tab {
-  color: #9e9e9e;
-  font-weight: 500;
-  text-transform: none;
-  min-width: 80px;
-}
-
-.tab .q-icon {
-  font-size: 20px;
-}
-
-.tab.active {
-  color: #03a9f4 !important;
-  border-bottom: 2px solid #03a9f4;
-  border-radius: 0;
-}
-
-.custom-input {
-  background-color: #f7f7f7;
-  border-radius: 6px;
-}
-
-.search-btn {
-  width: auto;
-  border-radius: 8px;
-  text-transform: none;
-  font-weight: 500;
-  max-width: inherit;
-}
-</style>

@@ -47,9 +47,9 @@ const getAmenityIcon = (amenity: string): string => {
 </script>
 
 <template>
-  <q-card class="hotel-card q-mb-sm">
+  <q-card class="hotal-card-dv q-mb-sm">
     <div class="row">
-      <q-card-section class="col-3 relative-position q-pa-none">
+      <q-card-section class="hotel-card col-3 relative-position q-pa-none">
         <q-img
           :src="imageSrc"
           class="hotel-card__image"
@@ -67,23 +67,23 @@ const getAmenityIcon = (amenity: string): string => {
         </div>
       </q-card-section>
 
-      <q-card-section class="col-7 relative-position">
-        <div class="text-subtitle1 text-weight-bold">{{ hotel.name }}</div>
-        <div class="text-caption text-grey-7">{{ hotel.district }}</div>
+      <q-card-section class="hotel-card col-7 relative-position">
+        <div class="hotel-card__title text-weight-bold">{{ hotel.name }}</div>
+        <div class="hotel-card__district">{{ hotel.district }}</div>
 
-        <div class="absolute-bottom full-width" style="padding: 16px;">
+        <div class="hotel-card__amenity absolute-bottom full-width">
           <div class="row q-gutter-sm q-mb-sm">
             <div
               v-for="amenity in hotel.amenities"
               :key="amenity"
-              class="icon-amenity flex flex-center"
+              class="hotel-card__amenity-icon flex flex-center"
               :title="amenity"
             >
               <q-icon :name="getAmenityIcon(amenity)" size="20px" />
             </div>
           </div>
 
-          <div class="text-green text-weight-medium text-caption">
+          <div class="hotel-card__tags">
             <div class="q-mb-xs">
               <q-icon name="payments" size="18px" class="q-mr-xs" />
               Reembolsável
@@ -96,16 +96,16 @@ const getAmenityIcon = (amenity: string): string => {
         </div>
       </q-card-section>
       
-      <q-card-section class="col-2 text-left hotel-card__price-section">
-        <div class="text-caption text-grey-6">Por dia</div>
-        <div class="text-h6 text-weight-bold q-card--price">
+      <q-card-section class="hotel-card col-2 text-left">
+        <div class="hotel-card__price-msg1">Por dia</div>
+        <div class="hotel-card__price-msg2">
           {{ formatBRL(hotel.dailyPrice) }}
         </div>
-        <div class="text-caption text-grey-5 q-mb-md">
-          No booking <span class="text-strike">{{ formatBRL(hotel.oldPrice ?? 0) }}</span>
+        <div class="hotel-card__price-msg3">
+          No booking <span class="hotel-card__price-msg4">{{ formatBRL(hotel.oldPrice ?? 0) }}</span>
         </div>
 
-        <div class="text-caption text-grey-6">
+        <div class="hotel-card__price-msg5">
           <div class="row justify-between q-mb-xs">
             <span>Diarias</span>
             <span>{{ formatBRL(hotel.dailyPrice) }}</span>
@@ -125,7 +125,7 @@ const getAmenityIcon = (amenity: string): string => {
         <q-btn
           label="Ver detalhes"
           color=""
-          class="full-width q-mt-sm"
+          class="hotel-card__buttom"
           rounded
           @click="$emit('show-details', hotel)"
         />

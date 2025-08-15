@@ -1,30 +1,29 @@
 <template>
     <q-dialog v-model="visible">
-        <q-card
-            style="width: 600px; max-width: 80vw; border-radius: 12px; padding: 20px 2px 20px 20px;">
-            <div class="scrollable-modal">
+        <q-card class="hotel-card-details">
+            <div class="hotel-card-details__scrollable-modal">
                 <div style="padding-right: 5px;">
-                    <q-card-section class="sem-padding-lr-pt">
+                    <q-card-section class="hotel-card-details__div-title">
                         <div class="row items-center no-wrap">
                             <div class="col">
-                                <div class="text-h6" style="color: var(--q-info-600);">{{ hotelDetails?.name }}</div>
+                                <div class="hotel-card-details__title">{{ hotelDetails?.name }}</div>
                             </div>
-                            <div class="col-auto" style="color: var(--q-info-600);">
-                                <q-btn flat round icon="close" @click="closeModal" class="btn-sem-fundo"/>
+                            <div class="hotel-card-details__div-close">
+                                <q-btn flat round icon="close" @click="closeModal" class="hotel-card-details__buttom-close"/>
                             </div>
                         </div>
                     </q-card-section>
     
-                    <q-card-section class="relative-position q-pa-none">
+                    <q-card-section class="hotel-card-details__div-img">
                         <template v-if="hotelDetails?.images && hotelDetails.images.length > 1">
                             <q-carousel v-model="slide" animated infinite :autoplay="3000" transition-prev="slide-right"
-                                transition-next="slide-left" height="300px" class="hotel-card__image_modal" ref="carouselRef">
-                                <q-carousel-slide v-for="(image, index) in hotelDetails.images" :key="index" :name="index">
+                                transition-next="slide-left" height="300px" class="hotel-card-details__image_modal" ref="carouselRef">
+                                <q-carousel-slide class="hotel-card-details__image_modal-slice" v-for="(image, index) in hotelDetails.images" :key="index" :name="index">
                                     <q-img :src="image" :ratio="1" />
                                 </q-carousel-slide>
     
                                 <template v-slot:control>
-                                    <div class="absolute-bottom row justify-between q-px-md q-py-md">
+                                    <div class="hotel-card-details__buttons_modal row justify-between">
                                         <q-btn round dense unelevated color="white" text-color="primary" icon="chevron_left"
                                             @click="carouselRef?.previous()" />
                                         <q-btn round dense unelevated color="white" text-color="primary" icon="chevron_right"
@@ -34,33 +33,33 @@
                             </q-carousel>
                         </template>
                         <template v-else>
-                            <q-img :src="defaultImage" :ratio="1" class="hotel-card__image_modal" />
+                            <q-img :src="defaultImage" :ratio="1" class="hotel-card-details__image_modal" />
                         </template>
     
-                        <div class="hotel-card__stars absolute-top-left q-pa-sm q-ma-md">
+                        <div class="hotel-card-details__rating">
                             <q-rating :model-value="Number(hotelDetails?.stars)" max="5" size="1em" color="blue" icon="star"
                                 readonly />
                         </div>
                     </q-card-section>
     
-                    <q-card-section>
-                        <div class="text-h6 title">Comodidades</div>
-                        <div class="row q-col-gutter-x-md q-mt-sm">
+                    <q-card-section class="hotel-card-details-section">
+                        <div class="hotel-card-details__title-bloco-1">Comodidades</div>
+                        <div class="hotel-card-details__descriptions-bloco-1 row">
                             <div v-for="amenity in hotelDetails?.amenities" :key="amenity.key" class="col-6 q-mb-sm">
-                                <q-icon class="icon-amenity" :name="getAmenityIcon(amenity.key)" size="20px" />
-                                <span class="text">{{ amenity.label }}</span>
+                                <q-icon class="hotel-card-details__icon-amenity-bloco-1" :name="getAmenityIcon(amenity.key)" size="20px" />
+                                <span class="hotel-card-details__text-bloco-1">{{ amenity.label }}</span>
                             </div>
                         </div>
                     </q-card-section>
     
-                    <q-card-section>
-                        <div class="text-h6 title">Localização</div>
-                        <div class="text">{{ hotelDetails?.fullAddress }}</div>
+                    <q-card-section class="hotel-card-details-section">
+                        <div class="hotel-card-details__title-bloco-2">Localização</div>
+                        <div class="hotel-card-details__descriptions-bloco-2">{{ hotelDetails?.fullAddress }}</div>
                     </q-card-section>
     
-                    <q-card-section>
-                        <div class="text-h6 title">Sobre o {{ hotelDetails?.name }}</div>
-                        <div class="text">{{ hotelDetails?.description }}</div>
+                    <q-card-section class="hotel-card-details-section">
+                        <div class="hotel-card-details__title-bloco-3">Sobre o {{ hotelDetails?.name }}</div>
+                        <div class="hotel-card-details__descriptions-bloco-3">{{ hotelDetails?.description }}</div>
                     </q-card-section>
                 </div>    
             </div>

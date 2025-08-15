@@ -1,21 +1,21 @@
 <template>
-  <q-page>
-    <div class="row q-px-xl">
+  <q-page class="index-page">
+    <div class="index-page__Search row">
       <div class="col-12">
         <HotelSearch />
       </div>
     </div>
 
-    <div class="row q-px-xl justify-center" style="position: relative; bottom: -45px; margin-top: -35px;">
+    <div class="index-page__Filter row">
       <div class="col-7">
         <HotelFilters />
       </div>
     </div>
 
-    <div class="row container-body justify-center q-mt-md q-px-xl q-pt-xl">
+    <div class="index-page__Cards row">
       <q-spinner v-if="hotelStore.loading" color="primary" size="3em" />
-      <div v-else-if="hotelStore.error">
-        <p class="text-h6 text-negative">{{ hotelStore.error }}</p>
+      <div class="index-page__Cards-text-div" v-else-if="hotelStore.error">
+        <p class="index-page__Cards-text-negative">{{ hotelStore.error }}</p>
       </div>
       <template v-else>
         <HotelCard
@@ -25,20 +25,20 @@
           class="col-12"
           @show-details="showHotelDetails"
         />
-        <div v-if="!hotelStore.filteredAndSortedHotels.length" style="height: 200px; align-items: center; display: flex;">
-          <p class="text-h6" style="color: var(--q-info-400) !important;">Nenhum hotel encontrado.</p>
+        <div class="index-page__Cards-text-div" v-if="!hotelStore.filteredAndSortedHotels.length">
+          <p class="index-page__Cards-text">Nenhum hotel encontrado.</p>
         </div>
       </template>
     </div>
 
-    <div v-if="hotelStore.filteredAndSortedHotels.length" class="q-pa-md q-px-xl flex justify-end pagination">
-      <div class="row items-center q-gutter-x-md">
-        <div class="custom-pagination-title">
+    <div v-if="hotelStore.filteredAndSortedHotels.length && !hotelStore.error" class="index-page__Cards-pagination">
+      <div class="index-page__Cards-pagination-div row q-gutter-x-md">
+        <div class="index-page__Cards-pagination-title">
           {{ startItem }}-{{ endItem }} de {{ hotelStore.totalItems }}
         </div>
-        <q-btn round dense flat icon="chevron_left" :disable="hotelStore.currentPage === 1" @click="prevPage" class="custom-pagination-button" />
+        <q-btn round dense flat icon="chevron_left" :disable="hotelStore.currentPage === 1" @click="prevPage" class="index-page__Cards-pagination-buttom" />
         <q-btn round dense flat icon="chevron_right" :disable="hotelStore.currentPage === hotelStore.totalPages"
-          @click="nextPage" class="custom-pagination-button" />
+          @click="nextPage" class="index-page__Cards-pagination-buttom" />
       </div>
     </div>
     
@@ -81,37 +81,3 @@ onMounted(async () => {
   await hotelStore.fetchHotels();
 });
 </script>
-
-<style scoped>
-.pagination {
-  border-top: 1px solid #e0e0e0;
-}
-
-.custom-pagination-title {
-  font-size: 14px;
-  color: #616161;
-}
-
-.custom-pagination-button {
-  border: 1px solid #0097a7;
-  border-radius: 8px;
-  color: #0097a7;
-  background-color: transparent !important;
-  min-width: 36px;
-  height: 36px;
-}
-
-.custom-pagination-button:hover {
-  background-color: rgba(0, 151, 167, 0.1);
-}
-
-.custom-pagination-button:disabled {
-  border-color: #ccc;
-  color: #ccc;
-  background-color: transparent !important;
-}
-
-.custom-pagination-button .q-icon {
-  font-size: 16px;
-}
-</style>
