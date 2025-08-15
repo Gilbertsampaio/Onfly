@@ -1,3 +1,37 @@
 {
-  "extends": "./.quasar/tsconfig.json"
+  "extends": "./.quasar/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "types": ["vitest"],
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "src/*": [
+        "src/*"
+      ],
+      // Adicionado o alias de forma mais robusta
+      "#q-app/*": [
+        ".quasar/app/*"
+      ],
+      // Adicionado os aliases para as pastas do Quasar
+      "pages/*": [
+        "src/pages/*"
+      ],
+      "layouts/*": [
+        "src/layouts/*"
+      ],
+      "components/*": [
+        "src/components/*"
+      ]
+    },
+    "lib": [
+      "es2021",
+      "dom",
+      "dom.iterable"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.vue"
+  ]
 }

@@ -1,0 +1,18 @@
+{
+  "extends": "./.quasar/tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "types": [
+      "vitest/globals"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/stores/__tests__/**/*.ts",
+    "src/**/*.test.ts"
+  ]
+}
