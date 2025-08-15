@@ -1,58 +1,58 @@
-# ?? Teste Técnico Front-End ? Onfly  
+# ğŸ¨ Teste TÃ©cnico Front-End â€” Onfly  
 
-Este projeto é um **SPA (Single Page Application)** desenvolvido como parte do **teste técnico Front-End da Onfly**.  
-O objetivo é implementar uma aplicação para buscar, listar, filtrar e detalhar hotéis a partir de um arquivo JSON servido via **JSON Server**.  
+Este projeto Ã© um **SPA (Single Page Application)** desenvolvido como parte do **teste tÃ©cnico Front-End da Onfly**.  
+O objetivo Ã© implementar uma aplicaÃ§Ã£o para buscar, listar, filtrar e detalhar hotÃ©is a partir de um arquivo JSON servido via **JSON Server**.  
 
 ---
 
-## ?? Tecnologias Utilizadas
+## ğŸš€ Tecnologias Utilizadas
 
 - [Vue.js 3](https://vuejs.org/)  
 - [Quasar Framework](https://quasar.dev/) (UI)  
 - [TypeScript](https://www.typescriptlang.org/)  
 - [Pinia](https://pinia.vuejs.org/) (gerenciamento de estado)  
 - [Vite](https://vitejs.dev/) (build tool)  
-- [JSON Server](https://www.npmjs.com/package/json-server) (simulação de API)  
-- [SASS](https://sass-lang.com/) (estilização)  
-- [Vitest](https://vitest.dev/) (testes unitários)  
+- [JSON Server](https://www.npmjs.com/package/json-server) (simulaÃ§Ã£o de API)  
+- [SASS](https://sass-lang.com/) (estilizaÃ§Ã£o)  
+- [Vitest](https://vitest.dev/) (testes unitÃ¡rios)  
 
 ---
 
-## ?? Estrutura dos Dados (payload.json)
+## ğŸ“‚ Estrutura dos Dados (payload.json)
 
-O arquivo `payload.json` é a fonte de dados da aplicação e contém:  
+O arquivo `payload.json` Ã© a fonte de dados da aplicaÃ§Ã£o e contÃ©m:  
 
 - **hotels**  
 - **hotels_details**  
 - **cities**  
 
-## ?? Funcionalidades Implementadas
+## ğŸ“Œ Funcionalidades Implementadas
 
-### ?? Busca de Hotéis
+### ğŸ” Busca de HotÃ©is
 - Campo **Destino** com busca de cidades:  
-  - A busca inicia apenas após o **3º caractere digitado**.  
-  - Sugestões exibidas no formato: `Cidade, Estado`.  
+  - A busca inicia apenas apÃ³s o **3Âº caractere digitado**.  
+  - SugestÃµes exibidas no formato: `Cidade, Estado`.  
 
-- **Filtros disponíveis**:  
-  - Ordenar por **Preço** ou **Estrelas**.  
+- **Filtros disponÃ­veis**:  
+  - Ordenar por **PreÃ§o** ou **Estrelas**.  
   - Filtrar por **nome do hotel**.  
 
 - **Listagem**:  
-  - Exibição paginada.  
-  - Cada hotel em um **card** com **thumb + informações principais**.  
-  - Exibe **Diária R$ X** e **Taxa R$ Y** (sem necessidade de calcular quantidade de diárias).  
+  - ExibiÃ§Ã£o paginada.  
+  - Cada hotel em um **card** com **thumb + informaÃ§Ãµes principais**.  
+  - Exibe **DiÃ¡ria R$ X** e **Taxa R$ Y** (sem necessidade de calcular quantidade de diÃ¡rias).  
 
-### ?? Detalhes do Hotel
-- Botão **?Ver detalhes?** abre um **drawer lateral** com:  
+### ğŸ¨ Detalhes do Hotel
+- BotÃ£o **â€œVer detalhesâ€** abre um **drawer lateral** com:  
   - Nome do hotel.  
-  - Descrição.  
-  - Endereço completo.  
+  - DescriÃ§Ã£o.  
+  - EndereÃ§o completo.  
   - Lista de amenidades.  
   - Imagens adicionais.  
 
 ---
 
-## ?? Padrões de Design Onfly
+## ğŸ¨ PadrÃµes de Design Onfly
 
 - **Cores principais**  
   - `primary-100: #009EFB`  
@@ -61,13 +61,13 @@ O arquivo `payload.json` é a fonte de dados da aplicação e contém:
   - `info-100: #ADADB3`, `info-200: #84858C`, `info-300: #84858C`, `info-400: #696A71`, `info-500: #58585F`, `info-600: #434347`  
 
 - **Layout**  
-  - Container máx.: **1200px**  
-  - Espaçamento: múltiplos de **4**  
-  - Arredondamento: múltiplos de **4**  
+  - Container mÃ¡x.: **1200px**  
+  - EspaÃ§amento: mÃºltiplos de **4**  
+  - Arredondamento: mÃºltiplos de **4**  
 
 - **Fonte**: Poppins  
-  - Padrão: **12px**  
-  - Títulos: **16px**  
+  - PadrÃ£o: **12px**  
+  - TÃ­tulos: **16px**  
 
 - **CSS** estruturado com **BEM**  
 
@@ -87,15 +87,15 @@ Acesse em: [http://localhost:9000/](http://localhost:9000/)
 
 ---
 
-## ?? Executando Testes
+## ğŸ§ª Executando Testes
 
 ```bash
 npm test
 ```
 
-- Os testes unitários foram implementados com **Vitest**.  
-- Cobrem **Pinia Store** (hotéis e cidades) e principais funcionalidades de filtro, busca e ordenação.  
+- Os testes unitÃ¡rios foram implementados com **Vitest**.  
+- Cobrem **Pinia Store** (hotÃ©is e cidades) e principais funcionalidades de filtro, busca e ordenaÃ§Ã£o.  
 
 ---
 
-?? Desenvolvido como parte do processo seletivo da **Onfly** - Gilbert Sampaio ??  
+ğŸ”¹ Desenvolvido como parte do processo seletivo da **Onfly** - Gilbert Sampaio ğŸ’™  
