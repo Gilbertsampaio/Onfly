@@ -13,7 +13,7 @@
     </div>
 
     <div class="index-page__Cards row">
-      <q-spinner v-if="hotelStore.loading" color="primary" size="3em" />
+      <q-spinner v-if="hotelStore.loading && !hotelStore.filteredAndSortedHotels.length" color="primary" size="3em" />
       <div class="index-page__Cards-text-div" v-else-if="hotelStore.error">
         <p class="index-page__Cards-text-negative">{{ hotelStore.error }}</p>
       </div>
@@ -31,7 +31,7 @@
       </template>
     </div>
 
-    <div v-if="hotelStore.filteredAndSortedHotels.length && !hotelStore.error" class="index-page__Cards-pagination">
+    <div class="index-page__Cards-pagination">
       <div class="index-page__Cards-pagination-div row q-gutter-x-md">
         <div class="index-page__Cards-pagination-title">
           {{ startItem }}-{{ endItem }} de {{ hotelStore.totalItems }}

@@ -11,21 +11,29 @@
       <div class="search-container-filter__filter row">
         <div class="col-8">
           <q-select v-model="selectedCity" :use-input="!selectedCity" input-debounce="300" :options="cityOptions"
-            @filter="filterCities" placeholder="Destino" clearable outlined dense class="search-container-filter__custom-input" hide-dropdown-icon
-            style="max-width: 400px;" @clear="handleClear">
+            @filter="filterCities" placeholder="Destino" clearable outlined dense
+            class="search-container-filter__custom-input" hide-dropdown-icon style="max-width: 400px;"
+            @clear="handleClear">
             <template v-slot:no-option>
               <q-item>
-                <q-item-section class="search-container-filter__text">
-                  Nenhuma cidade encontrada
-                </q-item-section>
+                <q-item v-if="hotelStore.loading">
+                  <q-item-section class="search-container-filter__text">
+                    Carregando cidades...
+                  </q-item-section>
+                </q-item>
+                <q-item v-else>
+                  <q-item-section class="search-container-filter__text">
+                    Nenhuma cidade encontrada
+                  </q-item-section>
+                </q-item>
               </q-item>
             </template>
           </q-select>
         </div>
 
         <div class="col-4">
-          <q-btn type="button" label="Buscar Hotel" icon="search" color="" class="search-container-filter__search-btn" @click="performSearch"
-            :disable="!selectedCity" />
+          <q-btn type="button" label="Buscar Hotel" icon="search" color="" class="search-container-filter__search-btn"
+            @click="performSearch" :disable="!selectedCity" />
         </div>
       </div>
     </div>
@@ -68,6 +76,8 @@ const performSearch = () => {
     alert('Selecione uma cidade da lista.');
     return;
   }
+
+  console.log('teste')
 
   if (hotelStore.loading) {
     alert('Aguarde a pesquisa atual terminar ou limpe o campo para pesquisar outra cidade.');
